@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F7F6F0;
+  --foreground: #24271F;
+  --surface: #FDFCF7;
+  --muted: #808278;
+  --olive: #777F59;
+  --olive-hover: #676F4B;
+  --olive-dark: #52583A;
+  --olive-light: #ECEEE4;
+  --divider: #E3E3D9;
+  --subtle: #EEEDE5;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    background-color: var(--background);
+    color: var(--foreground);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid var(--olive);
+    outline-offset: 3px;
+  }
+
+  /* Selection styling matching olive palette */
+  ::selection {
+    background-color: var(--olive-light);
+    color: var(--foreground);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Custom editorial utility classes */
+.editorial-container {
+  width: 100%;
+  max-width: 68rem; /* 1088px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .editorial-container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .editorial-container {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.thin-divider {
+  border: 0;
+  border-top: 1px solid var(--divider);
+  width: 100%;
+}
