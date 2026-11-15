@@ -18,7 +18,10 @@ export interface Project {
   shortTagline?: string;
   description: string;
   context: string;
+  projectType?: string;
   contribution?: string;
+  contributionDescription?: string;
+  backendAttribution?: string;
   status?: string;
   technologies: string[];
   developmentTools?: string[];
@@ -27,6 +30,7 @@ export interface Project {
     technologies: string[];
   };
   repositoryUrl?: string;
+  repositoryLabel?: string;
   liveUrl?: string;
   notes?: string;
 }
@@ -62,7 +66,7 @@ export interface PortfolioData {
     email?: string; // Optional: left undefined until user provides a real address
   };
   hero: {
-    introLabel: string;
+    introLabel?: string;
     headingLines: string[];
     supportingText: string;
     primaryCta: {
@@ -167,7 +171,8 @@ export const portfolioData: PortfolioData = {
 
   projects: {
     heading: "Selected Projects",
-    supportingText: "A selection of academic and practical development work.",
+    supportingText:
+      "Academic and internship projects where I've turned ideas into practical software, explored web technologies, and developed solutions to real-world workflows.",
     items: [
       {
         id: "studyflow",
@@ -176,10 +181,11 @@ export const portfolioData: PortfolioData = {
         shortTagline: "Academic Task Management System",
         description:
           "A web-based academic task management system that helps teachers manage assignments, students, and announcements, while allowing students to track assignments and monitor their academic progress.",
-        context: "Academic project",
-        // Editable contribution field: Neutral description preserved until individual/team allocation details are verified
-        contribution:
-          "Project architecture and core task management features (Individual / team scope unconfirmed).",
+        context: "Academic Project",
+        projectType: "Individual Project",
+        contribution: "Full Project Development",
+        contributionDescription:
+          "Independently designed and developed the complete StudyFlow application, including its frontend, backend, database integration, and student–teacher academic task management functionality.",
         status: "Completed",
         technologies: [
           "HTML",
@@ -191,6 +197,7 @@ export const portfolioData: PortfolioData = {
         ],
         developmentTools: ["VS Code", "Git", "GitHub"],
         repositoryUrl: "https://github.com/saheerhawa/StudyFlow",
+        repositoryLabel: "View Repository",
       },
       {
         id: "gymcore",
@@ -199,6 +206,9 @@ export const portfolioData: PortfolioData = {
         shortTagline: "Gym Management Platform Interface",
         context: "Internship Project at ZenCro Digital",
         contribution: "Frontend Development",
+        backendAttribution: "Developed by another team member",
+        contributionDescription:
+          "Responsible for designing and developing the frontend of GYMCORE during my internship at ZenCro Digital. The backend implementation was handled by another team member.",
         status: "Backend Integration Planned",
         description:
           "A frontend interface for a gym management platform, developed during my internship, covering member management, memberships, payments, attendance, staff management, and reporting workflows.",
@@ -218,8 +228,9 @@ export const portfolioData: PortfolioData = {
           technologies: ["Python", "FastAPI", "PostgreSQL / Supabase"],
         },
         notes:
-          "Frontend development completed during internship. Backend integration, persistent cloud storage, and production payment services are planned.",
-        // No public repository or live demo URL exists or has permission to be shared
+          "Frontend development completed during internship at ZenCro Digital. Backend implementation was handled by another team member; persistent cloud database and production services integration are planned.",
+        repositoryUrl: "https://github.com/saheerzencro/zencrogym_frontend",
+        repositoryLabel: "View Frontend Repository",
       },
     ],
   },
@@ -262,3 +273,4 @@ export const portfolioData: PortfolioData = {
     ],
   },
 };
+

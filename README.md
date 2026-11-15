@@ -158,8 +158,8 @@ To ensure technical and ethical integrity, the following information was intenti
 
 1. **Graduation Date & Scores**: Omitted until official dates and scores are confirmed; fields in `portfolio.ts` are optional and will display cleanly once populated.
 2. **Internship Year**: Displayed as "September – November" without an invented calendar year. An optional `year` field is provided in `src/data/portfolio.ts`.
-3. **StudyFlow Individual Contribution**: Described neutrally as an academic task manager without attributing unverified solo architecture or team breakdown.
-4. **GYMCORE Public Repository / Live Demo**: No public code repository or live deployment link is provided since this was a proprietary internship asset at ZenCro Digital.
+3. **StudyFlow**: Fully confirmed as an individual project planned, designed, and developed entirely by Saheer Hawa across frontend, backend, database integration, and task workflows.
+4. **GYMCORE Repository & Scope**: Frontend repository linked directly at `https://github.com/saheerzencro/zencrogym_frontend`. Frontend development confirmed as Saheer's exclusive contribution, with backend developed by another team member. No live demo URL is fabricated.
 5. **Email Address**: Omitted from the UI until explicitly provided in `src/data/portfolio.ts`.
 6. **Résumé**: No fake download link or button is included until an actual PDF résumé is added to `public/`.
 
@@ -187,3 +187,4 @@ This portfolio is fully configured and ready for 1-click deployment on [Vercel](
 5. Click **Deploy**.
 
 No backend databases, paid APIs, or environment variables are required.
+

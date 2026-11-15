@@ -9,16 +9,9 @@ export default function Hero() {
     <section
       id="top"
       aria-labelledby="hero-heading"
-      className="pt-16 pb-20 md:pt-28 md:pb-32 border-b border-divider"
+      className="pt-14 pb-20 md:pt-20 md:pb-28 border-b border-divider"
     >
       <div className="editorial-container">
-        {/* Introductory Label */}
-        <div className="mb-6 md:mb-8">
-          <span className="inline-block text-xs md:text-sm font-semibold tracking-wider uppercase text-olive font-mono">
-            {hero.introLabel}
-          </span>
-        </div>
-
         {/* Main Heading */}
         <h1
           id="hero-heading"

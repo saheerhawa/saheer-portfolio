@@ -53,13 +53,35 @@ export default function ProjectItem({ project, isLast = false }: ProjectItemProp
               </div>
             )}
 
+            {project.projectType && (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 text-xs sm:text-sm pt-2 border-t border-divider/60">
+                <span className="font-mono text-muted uppercase tracking-wider text-[11px] sm:text-xs">
+                  Project Type
+                </span>
+                <span className="sm:col-span-2 text-foreground font-medium">
+                  {project.projectType}
+                </span>
+              </div>
+            )}
+
             {project.contribution && (
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 text-xs sm:text-sm pt-2 border-t border-divider/60">
                 <span className="font-mono text-muted uppercase tracking-wider text-[11px] sm:text-xs">
-                  Contribution
+                  {project.id === "gymcore" ? "My Contribution" : "Contribution"}
                 </span>
                 <span className="sm:col-span-2 text-foreground font-medium">
                   {project.contribution}
+                </span>
+              </div>
+            )}
+
+            {project.backendAttribution && (
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 text-xs sm:text-sm pt-2 border-t border-divider/60">
+                <span className="font-mono text-muted uppercase tracking-wider text-[11px] sm:text-xs">
+                  Backend
+                </span>
+                <span className="sm:col-span-2 text-foreground font-medium">
+                  {project.backendAttribution}
                 </span>
               </div>
             )}
@@ -81,6 +103,13 @@ export default function ProjectItem({ project, isLast = false }: ProjectItemProp
             )}
           </div>
 
+          {/* Detailed Contribution Description */}
+          {project.contributionDescription && (
+            <p className="text-sm text-foreground/85 leading-relaxed pl-3.5 border-l-2 border-olive/70 font-normal">
+              {project.contributionDescription}
+            </p>
+          )}
+
           {/* Action Links / Notes */}
           <div className="pt-2 flex flex-wrap items-center gap-4">
             {project.repositoryUrl ? (
@@ -91,7 +120,7 @@ export default function ProjectItem({ project, isLast = false }: ProjectItemProp
                 className="inline-flex items-center gap-2 px-5 py-3 min-h-[44px] bg-olive text-white text-xs sm:text-sm font-medium tracking-tight hover:bg-olive-hover transition-colors rounded-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-olive"
               >
                 <Github className="w-4 h-4" />
-                <span>View Repository</span>
+                <span>{project.repositoryLabel || "View Repository"}</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             ) : (

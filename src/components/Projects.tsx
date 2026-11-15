@@ -14,11 +14,8 @@ export default function Projects() {
       <div className="editorial-container">
         {/* Section Header */}
         <div className="pb-8 border-b border-divider mb-4">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div>
-              <span className="font-mono text-xs uppercase tracking-wider text-muted block mb-2">
-                02 / Work
-              </span>
               <h2
                 id="projects-heading"
                 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground"
@@ -26,7 +23,7 @@ export default function Projects() {
                 {projects.heading}
               </h2>
             </div>
-            <p className="text-base text-muted max-w-md font-normal">
+            <p className="text-base text-muted max-w-xl font-normal leading-relaxed">
               {projects.supportingText}
             </p>
           </div>
@@ -46,3 +43,4 @@ export default function Projects() {
     </section>
   );
 }
+
