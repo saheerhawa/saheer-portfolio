@@ -51,7 +51,8 @@ export default function MobileNavigation({
       role="dialog"
       aria-modal="true"
       aria-label="Mobile Navigation Menu"
-      className="fixed inset-0 z-50 flex flex-col bg-background/98 md:hidden transition-all duration-200"
+      className="fixed inset-0 z-[60] flex flex-col md:hidden"
+      style={{ backgroundColor: "#F7F6F0" }}
     >
       {/* Top bar inside mobile overlay */}
       <div className="editorial-container flex items-center justify-between h-20 border-b border-divider">
