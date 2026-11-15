@@ -208,8 +208,8 @@ export const portfolioData: PortfolioData = {
         contribution: "Frontend Development",
         backendAttribution: "Developed by another team member",
         contributionDescription:
-          "Responsible for designing and developing the frontend of GYMCORE during my internship at ZenCro Digital. The backend implementation was handled by another team member.",
-        status: "Backend Integration Planned",
+          "I developed the frontend of GYMCORE during my internship at ZenCro Digital, while another team member handled the backend development. The overall project has been completed and deployed.",
+        status: "Completed",
         description:
           "A frontend interface for a gym management platform, developed during my internship, covering member management, memberships, payments, attendance, staff management, and reporting workflows.",
         technologies: [
@@ -223,12 +223,6 @@ export const portfolioData: PortfolioData = {
           "Zustand",
           "LocalStorage",
         ],
-        plannedIntegration: {
-          label: "Planned Backend & Database Integration",
-          technologies: ["Python", "FastAPI", "PostgreSQL / Supabase"],
-        },
-        notes:
-          "Frontend development completed during internship at ZenCro Digital. Backend implementation was handled by another team member; persistent cloud database and production services integration are planned.",
         repositoryUrl: "https://github.com/saheerzencro/zencrogym_frontend",
         repositoryLabel: "View Frontend Repository",
       },
