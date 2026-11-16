@@ -1,6 +1,7 @@
+
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { X } from "lucide-react";
 
 interface NavItem {
@@ -21,8 +22,23 @@ export default function MobileNavigation({
 }: MobileNavigationProps) {
   const menuRef = useRef<HTMLDivElement>(null);
   const firstFocusableRef = useRef<HTMLButtonElement>(null);
+  const [hasEntered, setHasEntered] = useState(false);
 
-  // Close on Escape key
+  // Entrance animation
+  useEffect(() => {
+    if (!isOpen) {
+      setHasEntered(false);
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      setHasEntered(true);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, [isOpen]);
+
+  // Close on Escape key and manage scrolling
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
@@ -48,17 +64,28 @@ export default function MobileNavigation({
 
   return (
     <div
+      ref={menuRef}
       role="dialog"
       aria-modal="true"
       aria-label="Mobile Navigation Menu"
       className="fixed inset-0 z-[60] flex flex-col md:hidden"
-      style={{ backgroundColor: "#F7F6F0" }}
+      style={{
+        backgroundColor: "#F7F6F0",
+        opacity: hasEntered ? 1 : 0,
+        transition: "opacity 250ms ease-out",
+      }}
     >
-      {/* Top bar inside mobile overlay */}
+      {/* Editorial Header */}
       <div className="editorial-container flex items-center justify-between h-20 border-b border-divider">
-        <span className="text-lg font-semibold tracking-tight text-foreground">
-          Saheer Hawa
-        </span>
+        <div className="flex flex-col">
+          <span className="text-lg font-semibold tracking-tight text-foreground">
+            Saheer Hawa
+          </span>
+          <span className="text-[9px] font-mono uppercase tracking-[0.18em] text-muted">
+            Navigation
+          </span>
+        </div>
+
         <button
           ref={firstFocusableRef}
           type="button"
@@ -70,19 +97,35 @@ export default function MobileNavigation({
         </button>
       </div>
 
-      {/* Navigation links */}
+      {/* Navigation Links */}
       <nav
         aria-label="Mobile Navigation"
-        className="editorial-container flex-1 flex flex-col justify-center py-12 gap-6"
+        className="editorial-container flex-1 flex flex-col justify-center py-10 gap-3"
       >
+        <p className="text-[10px] font-mono uppercase tracking-[0.18em] text-muted mb-4">
+          Explore the portfolio
+        </p>
+
         {navItems.map((item, index) => (
           <a
             key={item.name}
             href={item.href}
             onClick={onClose}
-            className="text-2xl font-medium tracking-tight text-foreground hover:text-olive transition-colors py-3 min-h-[48px] border-b border-divider/50 flex items-center justify-between group focus-visible:outline focus-visible:outline-2 focus-visible:outline-olive"
+            style={{
+              opacity: hasEntered ? 1 : 0,
+              transform: hasEntered
+                ? "translateY(0)"
+                : "translateY(12px)",
+              transition:
+                "opacity 350ms ease-out, transform 350ms ease-out",
+              transitionDelay: hasEntered
+                ? `${index * 65}ms`
+                : "0ms",
+            }}
+            className="text-3xl font-medium tracking-tight text-foreground hover:text-olive transition-colors py-4 min-h-[64px] border-b border-divider/50 flex items-center justify-between group focus-visible:outline focus-visible:outline-2 focus-visible:outline-olive"
           >
             <span>{item.name}</span>
+
             <span className="text-xs font-mono text-muted group-hover:text-olive transition-colors">
               0{index + 1}
             </span>
@@ -90,7 +133,7 @@ export default function MobileNavigation({
         ))}
       </nav>
 
-      {/* Bottom info inside overlay */}
+      {/* Bottom Information */}
       <div className="editorial-container py-8 border-t border-divider text-xs text-muted">
         <p className="font-mono uppercase tracking-wider text-[11px]">
           BSc Computer Science · ICS College, Khed

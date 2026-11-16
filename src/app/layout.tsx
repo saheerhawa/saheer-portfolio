@@ -5,10 +5,12 @@ export const metadata: Metadata = {
   title: "Saheer Hawa | Frontend Developer & Computer Science Student",
   description:
     "Portfolio of Saheer Hawa, a final-year BSc Computer Science student and frontend developer exploring data science, software testing, and practical software development.",
+  
   icons: {
-    icon: "/icon.svg",
+  icon: "/icon.svg",
   },
-  openGraph: {
+  
+    openGraph: {
     title: "Saheer Hawa | Frontend Developer & Computer Science Student",
     description:
       "Portfolio of Saheer Hawa, a final-year BSc Computer Science student and frontend developer exploring data science, software testing, and practical software development.",
